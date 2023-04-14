@@ -223,7 +223,8 @@ def page_not_found(e):
 @login_required
 @role_required(['ADMIN', 'MANAGER'])
 def training():
-    return render_template('training.html')
+    students = Student.query.all()
+    return render_template('training.html', students=students)
 
 
 if __name__ == '__main__':
